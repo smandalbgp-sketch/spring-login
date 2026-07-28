@@ -23,6 +23,7 @@ public class AuthController {
 			return ResponseEntity.ok(response);
 		} catch (BadCredentialsException e) {
 			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
+			
 		}
 	}
 
@@ -30,7 +31,7 @@ public class AuthController {
 	public ResponseEntity<?> register(@RequestBody LoginRequest request) {
 		try {
 			User user = authService.register(request.getUserName(), request.getPassword());
-			return ResponseEntity.status(HttpStatus.CREATED).body("User registered: " + user.getUserName());
+			return ResponseEntity.status(HttpStatus.CREATED).body("User registered successfully: " + user.getUserName());
 		} catch (IllegalArgumentException e) {
 			return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
 		}
