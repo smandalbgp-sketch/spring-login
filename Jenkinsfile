@@ -4,6 +4,7 @@ pipeline {
     environment {
         IMAGE_NAME = "spring-login"
         IMAGE_TAG = "0.0.1"
+        PATH = "/opt/homebrew/bin:/usr/local/bin:${env.PATH}"
     }
 
     stages {
