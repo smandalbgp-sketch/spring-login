@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springlogin
+spec:
+  # springlogin is stateless — safe to run multiple replicas.
+  # Kubernetes load-balances requests across both pods automatically
+  # via the Service.
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: springlogin
+  template:
+    metadata:
+      labels:
+        app: springlogin
+    spec:
+      containers:
+      - name: spring-login
+        image: springlogin:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8080
