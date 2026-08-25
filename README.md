@@ -1,5 +1,5 @@
 
-# Terminal Command History for K8s Kind Voting App
+# Terminal Command History for K8s Kind
 
 ## 1. Creating and Managing Kubernetes Cluster with Kind
 
